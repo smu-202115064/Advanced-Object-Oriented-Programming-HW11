@@ -11,10 +11,18 @@ public class Group extends AbstractSelectable {
 
     public void add(Selectable o) {
         selectables.add(o);
-        minBoundsX = Math.min(minBoundsX, o.getMinBoundsX());
-        minBoundsY = Math.min(minBoundsY, o.getMinBoundsY());
-        maxBoundsX = Math.max(maxBoundsX, o.getMinBoundsX());
-        maxBoundsY = Math.max(maxBoundsY, o.getMinBoundsY());
+        if (selectables.size() == 1) {
+            // if 'o' is the first item ever added
+            minBoundsX = o.getMinBoundsX();
+            minBoundsY = o.getMinBoundsY();
+            maxBoundsX = o.getMinBoundsX();
+            maxBoundsY = o.getMinBoundsY();
+        } else {
+            minBoundsX = Math.min(minBoundsX, o.getMinBoundsX());
+            minBoundsY = Math.min(minBoundsY, o.getMinBoundsY());
+            maxBoundsX = Math.max(maxBoundsX, o.getMinBoundsX());
+            maxBoundsY = Math.max(maxBoundsY, o.getMinBoundsY());
+        }
     }
 
     @Override
