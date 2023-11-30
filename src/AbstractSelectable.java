@@ -48,10 +48,5 @@ public abstract class AbstractSelectable implements Selectable {
         return x >= getMinBoundsX() && x <= getMaxBoundsX() && y >= getMinBoundsY() && y <= getMaxBoundsY();
     }
 
-    @Override
-    public void print() {
-        System.out.printf("%s:\n", getName());
-        System.out.printf("minBoundsX: %d, minBoundsY: %d\n", getMinBoundsX(), getMinBoundsY());
-        System.out.printf("maxBoundsX: %d, maxBoundsY: %d\n", getMaxBoundsX(), getMaxBoundsY());
-    }
+    abstract public void print();
 }
