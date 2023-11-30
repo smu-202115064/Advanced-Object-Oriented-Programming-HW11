@@ -16,4 +16,13 @@ public class Group extends AbstractSelectable {
         maxBoundsX = Math.max(maxBoundsX, o.getMinBoundsX());
         maxBoundsY = Math.max(maxBoundsY, o.getMinBoundsY());
     }
+
+    @Override
+    public void print() {
+        System.out.printf("%s:\n", getName());
+        System.out.printf("NumOfSelectables: %d\n", selectables.size());
+        System.out.printf("minBoundsX: %d, minBoundsY: %d\n", getMinBoundsX(), getMinBoundsY());
+        System.out.printf("maxBoundsX: %d, maxBoundsY: %d\n", getMaxBoundsX(), getMaxBoundsY());
+        selectables.forEach(Selectable::print);
+    }
 }
